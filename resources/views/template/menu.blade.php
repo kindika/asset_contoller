@@ -46,6 +46,8 @@
                 <a class="collapse-item" href="/emplist">Using Users</a>
                 <a class="collapse-item" href="/department">Department</a>
 
+                <a class="collapse-item" href="/Supplier">Supplier</a>
+
 
             </div>
         </div>

@@ -12,6 +12,8 @@ use App\Http\Controllers\EqupmentnamesController;
 use App\Http\Controllers\DeparmentController;
 use App\Http\Controllers\EmpController;
 use App\Http\Controllers\EqupmentController;
+use App\Http\Controllers\SupplierController;
+
 
 
 
@@ -105,6 +107,11 @@ Route::any('logout', [UserController::class, 'logout']);
 
 
 
+//supplier
+
+Route::any('Supplier', [SupplierController::class, 'index']);
+Route::any('newsupplier', [SupplierController::class, 'create']);
+Route::any('editSupplier', [SupplierController::class, 'edit']);
 
 
 
