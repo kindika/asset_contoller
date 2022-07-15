@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('equpmentnames', function (Blueprint $table) {
             $table->tinyInteger('equpmentname_id')->autoIncrement();
-            $table->text('equpmentname');         
+            $table->text('equpmentname');
             $table->timestamps();
         });
     }

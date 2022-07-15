@@ -110,9 +110,14 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
+        <a class="nav-link" href="logout">
+            <i class="fas fa-sign-out-alt"></i>
+          <span>Log Out</span> </a>
+
+
+
+
+
     </li>
 
     <!-- Divider -->
@@ -123,7 +128,7 @@
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 
-  
+
 
 </ul>
 <!-- End of Sidebar -->
@@ -306,9 +311,9 @@
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}  </span>
-                        <img class="img-profile rounded-circle" src="{{ url('img/undraw_profile.svg') }}" data-toggle="modal" data-target="#logoutModal">
-                 
+                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">  {{Auth::user()->name }} </span>
+                        <img class="img-profile rounded-circle" src="{{ url('img/undraw_profile.svg') }}" >
+
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="userDropdown">
@@ -325,7 +330,7 @@
                             Activity Log
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" >
+                        <a class="dropdown-item" href="logout" >
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                             Logout
                         </a>
@@ -340,36 +345,14 @@
         <body id="page-top">
             <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          
-         
+
+
       </div>
 
 
 
 
-      <!-- The Modal -->
-<div class="modal fade" id="logoutModal">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-  
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Do you need to Logout?</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-  
-        <!-- Modal body -->
-        <div class="modal-body">
-         <a href="logout" >  <button type="button" class="btn btn-success">Yes</button></a>
-         <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-        </div>
-  
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-  
-      </div>
-    </div>
-  </div>
-  
+  <!----- not ---------------->
+
+
+

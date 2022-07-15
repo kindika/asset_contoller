@@ -27,7 +27,7 @@ class EqupmentnamesController extends Controller
      */
     public function index()
     {
-         $data['Equpname']= DB::select('select * from equpmentnames');   
+         $data['Equpname']= DB::select('select * from equpmentnames');
         $data['title'] = 'Equpment Name';
         $data['template'] = 'equpment/index';
         return view('/template/template', compact('data'));
@@ -40,16 +40,20 @@ class EqupmentnamesController extends Controller
      */
     public function create(Request $request)
     {
+
+
         $request->validate([
             'equpmentname' => ['required', 'string', 'max:255'],
                ]);
-      
+
         $data=array(
             'equpmentname'=>$request->equpmentname,
          );
 
             DB::table('equpmentnames')->insert($data);
             return redirect('equpmentnames')->with('success',$request->location_name.'  Created Successfully!');
+
+
     }
 
     /**
@@ -85,12 +89,12 @@ class EqupmentnamesController extends Controller
         $request->validate([
             'equpmentname' => ['required', 'string', 'max:255'],
                ]);
-      
+
         $data=array(
             'equpmentname'=>$request->equpmentname,
          );
 
-        
+
             DB::table('equpmentnames')->where('equpmentname_id',$request->equpmentname_id )->update($data);
             return redirect('equpmentnames')->with('success',$request->location_name.'  Update Successfully!');
     }

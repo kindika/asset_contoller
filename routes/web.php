@@ -21,6 +21,7 @@ use App\Http\Controllers\SupplierController;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,7 +47,7 @@ Route::any('fileuplode', [SubController::class, 'update']);
 
 Auth::routes();
 
-// users 
+// users
 
 Route::any('uses', [UserController::class, 'index']);
 Route::any('crateuses', [UserController::class, 'crate']);
@@ -64,11 +65,11 @@ Route::any('locationdupdate', [locationController::class, 'edit']);
 // equpment Names
 
 Route::any('equpmentnames', [EqupmentnamesController::class, 'index']);
-Route::any('newequpment', [EqupmentnamesController::class, 'create']);
-Route::any('updatequpment', [EqupmentnamesController::class, 'edit']);
+Route::any('addqupmentname', [EqupmentnamesController::class, 'create']);
+Route::any('editequname', [EqupmentnamesController::class, 'edit']);
 
 
-//deparment 
+//deparment
 Route::any('department', [DeparmentController::class, 'index']);
 Route::any('newedepartment', [DeparmentController::class, 'create']);
 Route::any('updatedepartment', [DeparmentController::class, 'edit']);

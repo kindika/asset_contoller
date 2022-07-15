@@ -41,15 +41,15 @@ class SubController extends Controller
     public function create(Request $request)
     {
 
-       
-      
+
+
         $request->validate([
-            'sbu_name' => 'required | string | max:255 ', 
-            'sbu_prefixes' => 'required | string | max:255 ',          
+            'sbu_name' => 'required | string | max:255 ',
+            'sbu_prefixes' => 'required | string | max:255 ',
         ]);
 
-        
-        
+
+
 
         $data=array(
             'sbu_name'=>$request->sbu_name,
@@ -61,7 +61,7 @@ class SubController extends Controller
             DB::table('subs')->insert($data);
             return redirect('sbu')->with('success', $request->sbu_name.'  Created Successfully!');
 
-    
+
     }
 
     /**
@@ -72,6 +72,7 @@ class SubController extends Controller
      */
     public function store(Request $request)
     {
+
         $subs=new SubController;
         $subs->sbu_name=$request->sbu_name;
         $subs->adderss=$request->adderss;
@@ -86,8 +87,8 @@ class SubController extends Controller
      */
     public function show(Sub $sub)
     {
-       
-        $sql = "SELECT distinct sbu_id,sbu_name,adderss,contact_person FROM subs  ";
+
+        $sql = "SELECT distinct sbu_id,sbu_name,adderss,contact_person,sbu_prefixes FROM subs  ";
         return DB::select( DB::raw($sql), $params);
 
  /* inner join brand on product.brand_id = brand.brand_id
@@ -95,7 +96,7 @@ class SubController extends Controller
         inner join area on area.area_id = brand_area.area_id
         inner join product_offer on product_offer.product_id = product.product_id
         where area.area_id = :area
-        and product.size_id = :size 
+        and product.size_id = :size
         */
 
     }
@@ -108,10 +109,11 @@ class SubController extends Controller
      */
     public function edit(Request $request)
     {
-    
+
+
         $request->validate([
-            'sbu_name' => 'required | string | max:255 ', 
-            'sbu_prefixes' => 'required | string | max:255 ',          
+            'sbu_name' => 'required | string | max:255 ',
+            'sbu_prefixes' => 'required | string | max:255 ',
         ]);
 
         $data=array(
@@ -121,7 +123,7 @@ class SubController extends Controller
             "sbu_prefixes"=>$request->sbu_prefixes,
             );
 
-            DB::table('subs')->where('sbu_id',$request->sbu_id)->update(['sbu_name'=>$request->sbu_name]);
+            DB::table('subs')->where('sbu_id',$request->sbu_id)->update($data);
             return redirect('sbu')->with('success', $request->sbu_name.'  Update Successfully!');
 
     }
@@ -135,19 +137,19 @@ class SubController extends Controller
      */
     public function update(Request $request)
     {
-       
+
         $validatedData = $request->validate([
             'file' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-    
+
            ]);
-  
-    $fileName = $request->sbu_id.'.'.$request->file->extension();     
+
+    $fileName = $request->sbu_id.'.'.$request->file->extension();
     $request->file->move(public_path('logo'), $fileName);
 
     DB::table('subs')->where('sbu_id',$request->sbu_id)->update(['logoname'=>$fileName]);
     return redirect('sbu')->with('success', $request->sbu_name.'  Update Successfully!');
 
-    
+
     }
 
     /**
